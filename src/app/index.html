@@ -5,30 +5,35 @@
     <title>首页</title>
     <link rel="shortcut icon" href="../img/100du.ico"/>
     <link rel="stylesheet" href="../css/commom/reset.css"/>
-
+    <link rel="stylesheet" href="../css/commom/public.css"/>
     <link rel="stylesheet" href="../css/page/index.css"/>
     <script src="../js/lib/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-    <header id="iHeader"></header>
+<div class="iWrap">
+    <header id="iHeader" class="gradient"></header>
     <nav class="iNav"></nav>
     <section class="iSearch"></section>
-    <main class="iContent">
-        <section class="iMain">
+    <main class="iContent clear">
+        <section class="iMain fl">
             <div class="clear">
-                <section class="iMianSection fl"></section>
+                <section class="iMainSection fl"></section>
                 <section class="iMainOptions fr"></section>
             </div>
-            <section class="iMainAd"></section>
+            <section class="iMainAd" >
+                <a href="#"><img src="../img/ad/ad1.jpg" /></a>
+            </section>
             <div class="clear">
-                <section class="iMianSection fl"></section>
+                <section class="iMainSection fl"></section>
                 <section class="iMainOptions fr"></section>
             </div>
             <div class="clear">
-                <section class="iMianOptions fl"></section>
+                <section class="iMainOptions fl"></section>
                 <section class="iMainSection fr"></section>
             </div>
-            <section class="iMainAd"></section>
+            <section class="iMainAd">
+                <a><img src="../img/ad/ad1.jpg"/> </a>
+            </section>
             <div class="clear">
                 <section class="iMainSection fl"></section>
                 <section class="iMainSection fr"></section>
@@ -38,10 +43,14 @@
                 <section class="iMainSection fr"></section>
             </div>
         </section>
-        <aside class="iAside">
+        <aside class="iAside fr clear">
             <section class="iAsideSection"></section>
-            <section class="iAsideAd"></section>
-            <section class="iAsideAd"></section>
+            <section class="iAsideAd">
+                <a href="#"><img src="../img/ad/ad2.jpg"/> </a>
+            </section>
+            <section class="iAsideAd">
+                <a href="#"><img src="../img/ad/ad3.jpg"/> </a>
+            </section>
             <section class="iAsideSection"></section>
             <section class="iAsideSection"></section>
             <section class="iAsideSection"></section>
@@ -50,5 +59,6 @@
         </aside>
     </main>
     <footer id="iFooter"></footer>
+</div>
 </body>
 </html>

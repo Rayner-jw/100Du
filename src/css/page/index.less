@@ -1,7 +1,71 @@
-
-.mycolor(@col : blue) {
-  background: @col;
+/**/
+@iWrapWidth:960px;
+.iWrap{
+  width: @iWrapWidth;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
-body{
-  .mycolor();
+.borderR(@radius:6px){ border-radius:@radius; border:1px solid #dbdbdb; }
+.marginB(@marginB:10px){margin-bottom: @marginB;}
+#iHeader{
+  height: 30px;
+  .borderR();
+}
+.iNav{
+  height:100px;
+  background: wheat;
+}
+.iSearch{
+  width:958px;
+  height:114px;
+  .borderR();
+  .marginB();
+}
+.iContent{
+
+  .iMain{
+    width:710px;
+    .iMainAd{
+      border-radius:6px;
+      overflow:hidden;
+      .marginB();
+    }
+    .iMainOptions{
+      width:350px;
+      height: 200px;
+      background: red;
+      .marginB();
+    }
+    .iMainSection{
+      width:318px;
+      height: 200px;
+      padding:0 15px;
+      .borderR();
+      .marginB();
+    }
+  }
+  .iAside{
+    width:240px;
+    .iAsideAd{
+      border-radius:6px;
+      overflow:hidden;
+      .marginB();
+    }
+    .iAsideSection{
+      width: 238px;
+      height: 50px;
+      .borderR();
+      .marginB();
+    }
+  }
+}
+#iFooter{
+  width:958px;
+  height:64px;
+  padding-top:14px;
+  line-height:25px;
+  background:#f9f9f9;
+  color:#767676;
+  text-align:center;
+  .borderR();
 }

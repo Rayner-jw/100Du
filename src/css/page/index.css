@@ -1,3 +1,70 @@
-body {
-  background: blue;
+/**/
+.iWrap {
+  width: 960px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+#iHeader {
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid #dbdbdb;
+}
+.iNav {
+  height: 100px;
+  background: wheat;
+}
+.iSearch {
+  width: 958px;
+  height: 114px;
+  border-radius: 6px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 10px;
+}
+.iContent .iMain {
+  width: 710px;
+}
+.iContent .iMain .iMainAd {
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.iContent .iMain .iMainOptions {
+  width: 350px;
+  height: 200px;
+  background: red;
+  margin-bottom: 10px;
+}
+.iContent .iMain .iMainSection {
+  width: 318px;
+  height: 200px;
+  padding: 0 15px;
+  border-radius: 6px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 10px;
+}
+.iContent .iAside {
+  width: 240px;
+}
+.iContent .iAside .iAsideAd {
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.iContent .iAside .iAsideSection {
+  width: 238px;
+  height: 50px;
+  border-radius: 6px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 10px;
+}
+#iFooter {
+  width: 958px;
+  height: 64px;
+  padding-top: 14px;
+  line-height: 25px;
+  background: #f9f9f9;
+  color: #767676;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #dbdbdb;
 }
