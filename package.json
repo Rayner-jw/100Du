@@ -1,0 +1,28 @@
+{
+  "name": "100du",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rayner-jw/100Du.git"
+  },
+  "keywords": [
+    "web",
+    "gulp"
+  ],
+  "author": "rayner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rayner-jw/100Du/issues"
+  },
+  "homepage": "https://github.com/Rayner-jw/100Du#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.2",
+    "gulp-livereload": "^3.8.1"
+  }
+}
