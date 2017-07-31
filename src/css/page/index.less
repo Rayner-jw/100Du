@@ -1,4 +1,7 @@
-@col : red;
-body{
+
+.mycolor(@col : blue) {
   background: @col;
+}
+body{
+  .mycolor();
 }
