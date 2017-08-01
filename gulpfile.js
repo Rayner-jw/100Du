@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
     less = require('gulp-less'),
-    livereload = require('gulp-livereload'),
-	concat = require("gulp-concat");
+    livereload = require('gulp-livereload');
 //less编译
 gulp.task('less', function() {
     gulp.src('src/css/page/*.less')

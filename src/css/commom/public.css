@@ -12,3 +12,14 @@
     -ms-filter:"progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#FFFFFF, endColorstr=#f8f8f8)";
     +background:#f9f9f9;
 }
+.triangle_up, .triangle_down_red, .triangle_down_gray {
+    position:absolute;
+    width:0;
+    height:0;
+    overflow:hidden;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+}
+.triangle_up { border-bottom:4px solid #ca0309; }
+.triangle_down_red { border-top:4px solid #ca0309; }
+.triangle_down_gray { border-top:4px solid #c4bdbd; }
