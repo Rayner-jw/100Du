@@ -8,6 +8,79 @@
     <link rel="stylesheet" href="../css/commom/public.css"/>
     <link rel="stylesheet" href="../css/page/index.css"/>
     <script src="../js/lib/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () {
+            //iSearch 搜索切换
+            (function () {
+                var $search = $('#iSearchOption li'),
+                    $optDisplay = $('.iSearchText'),
+                    $optNow = 0,
+                    $optExample = [
+                        '例如000000',
+                        '例如111111',
+                        '例如222222',
+                        '例如333333',
+                        '例如444444',
+                    ];
+                $optDisplay.val($optExample[$optNow]);
+                $search.each(function (i) {
+                    $(this).click(function () {
+                        $search.attr('class','gradient');
+                        $(this).attr('class','active');
+                        $optDisplay.val($optExample[i]);
+                        $optNow = i ;
+                    });
+                });
+                $optDisplay.focus(function () {
+                    if($(this).val() == $optExample[$optNow]){
+                        $(this).val('');
+                    }
+                });
+                $optDisplay.focusout(function () {
+                   if(!$optDisplay.val()){
+                       $optDisplay.val($optExample[$optNow]);
+                   }
+                });
+            })();
+            //iSearch 文字滚动
+            (function () {
+                var $lastNewsUl = $('.latestNews ul'),
+                    $newsLiHeight =  0,
+                    $lastNewsContent = [
+                        {'newsN':'萱萱','newsT':'5分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'},
+                        {'newsN':'份饭','newsT':'6分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'},
+                        {'newsN':'啊啊','newsT':'7分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'},
+                        {'newsN':'仍然','newsT':'8分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'}
+                    ],
+                    $lastNewsLi = '',
+                    $newsUp = $('#newsUp'),
+                    $newsDown = $('#newsDown'),
+                    $newsNow = 0;
+                for(var i=0;i<$lastNewsContent.length;i++){
+                    $lastNewsLi += '<li> <a href="#"><strong>'+$lastNewsContent[i].newsN+'</strong><span>'+$lastNewsContent[i].newsT+'</span>'+$lastNewsContent[i].newsC+'</a></li>';
+                }
+                $lastNewsUl.html($lastNewsLi);
+                $newsLiHeight = $lastNewsUl.find('li').height();
+                $newsUp.click(function () {
+                    newsMove(1);
+                });
+                $newsDown.click(function () {
+                    newsMove(-1);
+                });
+                function newsMove(n) {
+                    $newsNow += n;
+                    if(Math.abs($newsNow) > $lastNewsContent.length-1){
+                        $newsNow = 0;
+                    }
+                    if(Math.abs($newsNow) > 0){
+                        $newsNow = -($lastNewsContent.length-1);
+                    }
+                    $lastNewsUl.animate({'top':$newsLiHeight*$newsNow},1000);
+                }
+
+            })();
+        });
+    </script>
 </head>
 <body>
 <div class="iWrap">
@@ -43,7 +116,7 @@
     </nav>
     <section class="iSearch gradient">
         <section class="iSearchBar">
-            <ul class="iSearchOption">
+            <ul class="iSearchOption" id="iSearchOption">
                 <li class="active">搜店</li>
                 <li class="gradient">地址</li>
                 <li class="gradient">优惠券</li>
@@ -68,19 +141,11 @@
         <div class="latestNews">
             <div class="newsWrap">
                 <ul>
-                    <li>
-                        <a href="#"><strong>萱萱</strong><span>5分钟前</span>写了一篇新文章：那些灿烂华美的瞬间…</a>
-                    </li>
-                    <li>
-                        <a href="#"><strong>aa</strong><span>5分钟前</span>写了一篇新文章：那些灿烂华美的瞬间…</a>
-                    </li>
-                    <li>
-                        <a href="#"><strong>bb</strong><span>5分钟前</span>写了一篇新文章：那些灿烂华美的瞬间…</a>
-                    </li>
+
                 </ul>
             </div>
-            <a class="triangle_up"></a>
-            <a class="triangle_down_red"></a>
+            <a class="triangle_up" id="newsUp"></a>
+            <a class="triangle_down_red" id="newsDown"></a>
         </div>
     </section>
     <main class="iContent clear">
