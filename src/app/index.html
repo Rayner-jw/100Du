@@ -44,40 +44,50 @@
             })();
             //iSearch 文字滚动
             (function () {
-                var $lastNewsUl = $('.latestNews ul'),
+                var $latestNewsDiv = $('.latestNews'),
+                    $latestNewsUl = $latestNewsDiv.find('ul'),
                     $newsLiHeight =  0,
-                    $lastNewsContent = [
+                    $latestNewsContent = [
                         {'newsN':'萱萱','newsT':'5分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'},
                         {'newsN':'份饭','newsT':'6分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'},
                         {'newsN':'啊啊','newsT':'7分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'},
                         {'newsN':'仍然','newsT':'8分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'}
                     ],
-                    $lastNewsLi = '',
+                    $latestNewsLi = '',
                     $newsUp = $('#newsUp'),
                     $newsDown = $('#newsDown'),
+                    timer = null,
                     $newsNow = 0;
-                for(var i=0;i<$lastNewsContent.length;i++){
-                    $lastNewsLi += '<li> <a href="#"><strong>'+$lastNewsContent[i].newsN+'</strong><span>'+$lastNewsContent[i].newsT+'</span>'+$lastNewsContent[i].newsC+'</a></li>';
+                for(var i=0;i<$latestNewsContent.length;i++){
+                    $latestNewsLi += '<li><a href="#"><strong>'+$latestNewsContent[i].newsN+'</strong><span>'+$latestNewsContent[i].newsT+'</span>'+$latestNewsContent[i].newsC+'</a></li>';
                 }
-                $lastNewsUl.html($lastNewsLi);
-                $newsLiHeight = $lastNewsUl.find('li').height();
+                $latestNewsUl.html($latestNewsLi);
+                $newsLiHeight = $latestNewsUl.find('li').height();
                 $newsUp.click(function () {
                     newsMove(1);
                 });
                 $newsDown.click(function () {
                     newsMove(-1);
                 });
+                $latestNewsDiv.hover(function () {
+                    clearInterval(timer);
+                },autoMove);
+                autoMove();
+                function autoMove() {
+                    timer = setInterval(function () {
+                        newsMove(-1);
+                    },2000)
+                }
                 function newsMove(n) {
                     $newsNow += n;
-                    if(Math.abs($newsNow) > $lastNewsContent.length-1){
+                    if(Math.abs($newsNow) > $latestNewsContent.length-1){
                         $newsNow = 0;
                     }
-                    if(Math.abs($newsNow) > 0){
-                        $newsNow = -($lastNewsContent.length-1);
+                    if($newsNow > 0){
+                        $newsNow = -($latestNewsContent.length-1);
                     }
-                    $lastNewsUl.animate({'top':$newsLiHeight*$newsNow},1000);
+                    $latestNewsUl.animate({'top':$newsLiHeight*$newsNow},4000);
                 }
-
             })();
         });
     </script>
