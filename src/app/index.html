@@ -8,89 +8,7 @@
     <link rel="stylesheet" href="../css/commom/public.css"/>
     <link rel="stylesheet" href="../css/page/index.css"/>
     <script src="../js/lib/jquery-3.2.1.min.js"></script>
-    <script>
-        $(function () {
-            //iSearch 搜索切换
-            (function () {
-                var $search = $('#iSearchOption li'),
-                    $optDisplay = $('.iSearchText'),
-                    $optNow = 0,
-                    $optExample = [
-                        '例如000000',
-                        '例如111111',
-                        '例如222222',
-                        '例如333333',
-                        '例如444444',
-                    ];
-                $optDisplay.val($optExample[$optNow]);
-                $search.each(function (i) {
-                    $(this).click(function () {
-                        $search.attr('class','gradient');
-                        $(this).attr('class','active');
-                        $optDisplay.val($optExample[i]);
-                        $optNow = i ;
-                    });
-                });
-                $optDisplay.focus(function () {
-                    if($(this).val() == $optExample[$optNow]){
-                        $(this).val('');
-                    }
-                });
-                $optDisplay.focusout(function () {
-                   if(!$optDisplay.val()){
-                       $optDisplay.val($optExample[$optNow]);
-                   }
-                });
-            })();
-            //iSearch 文字滚动
-            (function () {
-                var $latestNewsDiv = $('.latestNews'),
-                    $latestNewsUl = $latestNewsDiv.find('ul'),
-                    $newsLiHeight =  0,
-                    $latestNewsContent = [
-                        {'newsN':'萱萱','newsT':'5分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'},
-                        {'newsN':'份饭','newsT':'6分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'},
-                        {'newsN':'啊啊','newsT':'7分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'},
-                        {'newsN':'仍然','newsT':'8分钟前','newsC':'写了一篇新文章：那些灿烂华美的瞬间…'}
-                    ],
-                    $latestNewsLi = '',
-                    $newsUp = $('#newsUp'),
-                    $newsDown = $('#newsDown'),
-                    timer = null,
-                    $newsNow = 0;
-                for(var i=0;i<$latestNewsContent.length;i++){
-                    $latestNewsLi += '<li><a href="#"><strong>'+$latestNewsContent[i].newsN+'</strong><span>'+$latestNewsContent[i].newsT+'</span>'+$latestNewsContent[i].newsC+'</a></li>';
-                }
-                $latestNewsUl.html($latestNewsLi);
-                $newsLiHeight = $latestNewsUl.find('li').height();
-                $newsUp.click(function () {
-                    newsMove(1);
-                });
-                $newsDown.click(function () {
-                    newsMove(-1);
-                });
-                $latestNewsDiv.hover(function () {
-                    clearInterval(timer);
-                },autoMove);
-                autoMove();
-                function autoMove() {
-                    timer = setInterval(function () {
-                        newsMove(-1);
-                    },2000)
-                }
-                function newsMove(n) {
-                    $newsNow += n;
-                    if(Math.abs($newsNow) > $latestNewsContent.length-1){
-                        $newsNow = 0;
-                    }
-                    if($newsNow > 0){
-                        $newsNow = -($latestNewsContent.length-1);
-                    }
-                    $latestNewsUl.animate({'top':$newsLiHeight*$newsNow},4000);
-                }
-            })();
-        });
-    </script>
+    <script src="../js/page/index.js"></script>
 </head>
 <body>
 <div class="iWrap">
@@ -174,11 +92,9 @@
                     <ul class="optionTab">
                         <li class="active fl">
                             <strong>HOT SHOP <span>红店铺</span></strong>
-                            <a href="#" class="triangle_down_red"></a>
                         </li>
                         <li class="gradient fr">
                             <strong>EW SHOP <span>新开张</span></strong>
-                            <a href="#" class="triangle_down_gray"></a>
                         </li>
                     </ul>
                     <section class="optionTabContent">
@@ -219,6 +135,47 @@
                                                 区域省：朝阳/CBD<br />
                                                 人均：180元<br />
                                                 人气：12321
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                            </ul>
+                            <ul class="tabCon1">
+                                <li>
+                                    <figure>
+                                        <a class="img" href="#"><img src="../img/content/hot_list_pic1.gif" alt="内容图片" /></a>
+                                        <figcaption class="text">
+                                            <h3><a href="#">色粉谔谔酒店</a></h3>
+                                            <p>
+                                                区域省：广州/CBD<br />
+                                                人均：220元<br />
+                                                人气：222222
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <li>
+                                    <figure>
+                                        <a class="img" href="#"><img src="../img/content/hot_list_pic1.gif" alt="内容图片" /></a>
+                                        <figcaption class="text">
+                                            <h3><a href="#">色粉谔谔酒店</a></h3>
+                                            <p>
+                                                区域省：广州/CBD<br />
+                                                人均：220元<br />
+                                                人气：222222
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <li>
+                                    <figure>
+                                        <a class="img" href="#"><img src="../img/content/hot_list_pic1.gif" alt="内容图片" /></a>
+                                        <figcaption class="text">
+                                            <h3><a href="#">色粉谔谔酒店</a></h3>
+                                            <p>
+                                                区域省：广州/CBD<br />
+                                                人均：220元<br />
+                                                人气：222222
                                             </p>
                                         </figcaption>
                                     </figure>
@@ -238,7 +195,7 @@
                         <strong>zhidaofenzhi<span>知道分子</span></strong>
                         <a href="#" title="更多"><img src="../img/more.gif" alt="更多" /></a>
                     </h2>
-                    <div class="tab">
+                    <section class="tab">
                         <ul class="tabNav3">
                             <li class="active">
                                 有人在问
@@ -253,43 +210,117 @@
                                 <a class="triangle_down_gray"></a>
                             </li>
                         </ul>
-                    </div>
-                    <ul class="listSection tabCon3">
-                        <li class="title">
-                            <span class="fl">标题</span>
-                            <span class="fr">状态</span>
-                        </li>
-                        <li>
-						<span class="col1">
-							<a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
-						</span>
-                            <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
-                        </li>
-                        <li>
-						<span class="col1">
-							<a href="#"><em>[<span>美食</span>]</em> 老北京一尊京一尊京一尊皇牛</a>
-						</span>
-                            <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
-                        </li>
-                        <li>
-						<span class="col1">
-							<a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
-						</span>
-                            <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
-                        </li>
-                        <li>
-						<span class="col1">
-							<a href="#"><em>[<span>美食</span>]</em> 老北京一尊京一尊京一尊皇牛</a>
-						</span>
-                            <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
-                        </li>
-                        <li>
-						<span class="col1">
-							<a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
-						</span>
-                            <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
-                        </li>
-                    </ul>
+                    </section>
+                    <section class="tabNav3Content">
+                        <ul class="listSection tabCon3">
+                            <li class="title">
+                                <span class="fl">标题</span>
+                                <span class="fr">状态</span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>美食</span>]</em> 老北京一尊京一尊京一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>美食</span>]</em> 老北京一尊京一尊京一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                        </ul>
+                        <ul class="listSection tabCon3">
+                            <li class="title">
+                                <span class="fl">标题</span>
+                                <span class="fr">状态</span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>法国</span>]</em> 人工费规格化</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>绝尬</span>]</em> 认同公司发生尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>法国</span>]</em> 人工费规格化</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>绝尬</span>]</em> 认同公司发生尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>法国</span>]</em> 人工费规格化</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                        </ul>
+                        <ul class="listSection tabCon3">
+                            <li class="title">
+                                <span class="fl">标题</span>
+                                <span class="fr">状态</span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>体育</span>]</em> 且往往会毁人</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>裤头</span>]</em> 十大歌手个人一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>体育</span>]</em> 且往往会毁人</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>裤头</span>]</em> 十大歌手个人一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>体育</span>]</em> 且往往会毁人</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                        </ul>
+                    </section>
                     <div class="mainSectionSearch">
                         <form action="#">
                             <strong>搜搜谁知道：</strong>
@@ -303,8 +334,8 @@
                         <strong>zhidaofenzhi<span>知道分子</span></strong>
                         <a href="#" title="更多"><img src="../img/more.gif" alt="更多" /></a>
                     </h2>
-                    <div class="tab">
-                        <ul class="tabNav3">
+                    <section class="tab">
+                        <ul class="tabNav4">
                             <li class="active">
                                 有人在问
                                 <a class="triangle_down_red"></a>
@@ -318,43 +349,117 @@
                                 <a class="triangle_down_gray"></a>
                             </li>
                         </ul>
-                    </div>
-                    <ul class="listSection tabCon3">
-                        <li class="title">
-                            <span class="fl">标题</span>
-                            <span class="fr">状态</span>
-                        </li>
-                        <li>
-						<span class="col1">
-							<a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
-						</span>
-                            <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
-                        </li>
-                        <li>
-						<span class="col1">
-							<a href="#"><em>[<span>美食</span>]</em> 老北京一尊京一尊京一尊皇牛</a>
-						</span>
-                            <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
-                        </li>
-                        <li>
-						<span class="col1">
-							<a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
-						</span>
-                            <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
-                        </li>
-                        <li>
-						<span class="col1">
-							<a href="#"><em>[<span>美食</span>]</em> 老北京一尊京一尊京一尊皇牛</a>
-						</span>
-                            <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
-                        </li>
-                        <li>
-						<span class="col1">
-							<a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
-						</span>
-                            <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
-                        </li>
-                    </ul>
+                    </section>
+                    <section class="tabNav4Content">
+                        <ul class="listSection tabCon3">
+                            <li class="title">
+                                <span class="fl">标题</span>
+                                <span class="fr">状态</span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>美食</span>]</em> 老北京一尊京一尊京一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>美食</span>]</em> 老北京一尊京一尊京一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>休闲</span>]</em> 老北京一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                        </ul>
+                        <ul class="listSection tabCon3">
+                            <li class="title">
+                                <span class="fl">标题</span>
+                                <span class="fr">状态</span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>法国</span>]</em> 人工费规格化</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>绝尬</span>]</em> 认同公司发生尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>法国</span>]</em> 人工费规格化</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>绝尬</span>]</em> 认同公司发生尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>法国</span>]</em> 人工费规格化</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                        </ul>
+                        <ul class="listSection tabCon3">
+                            <li class="title">
+                                <span class="fl">标题</span>
+                                <span class="fr">状态</span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>体育</span>]</em> 且往往会毁人</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>裤头</span>]</em> 十大歌手个人一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>体育</span>]</em> 且往往会毁人</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>裤头</span>]</em> 十大歌手个人一尊皇牛</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico2.gif" alt="" /></span>
+                            </li>
+                            <li>
+                            <span class="col1">
+                                <a href="#"><em>[<span>体育</span>]</em> 且往往会毁人</a>
+                            </span>
+                                <span class="col2"><img src="../img/ico1.gif" alt="" /></span>
+                            </li>
+                        </ul>
+                    </section>
                     <div class="mainSectionSearch">
                         <form action="#">
                             <strong>搜搜谁知道：</strong>
@@ -364,101 +469,155 @@
                     </div>
                 </section>
             </div>
-            <div class="clear">
-                <section class="iMainOptions fl">
-                    <ul class="optionTab">
-                        <li class="active fl">
-                            <strong>HOT SHOP <span>红店铺</span></strong>
-                            <a href="#" class="triangle_down_red"></a>
-                        </li>
-                        <li class="gradient fr">
-                            <strong>EW SHOP <span>新开张</span></strong>
-                            <a href="#" class="triangle_down_gray"></a>
-                        </li>
-                    </ul>
-                    <section class="optionTabContent">
-                        <div class="hotList">
-                            <ul class="tabCon1">
-                                <li>
-                                    <figure>
-                                        <a class="img" href="#"><img src="../img/content/hot_list_pic1.gif" alt="内容图片" /></a>
-                                        <figcaption class="text">
-                                            <h3><a href="#">御舟和涵珍园国际酒店</a></h3>
-                                            <p>
-                                                区域省：朝阳/CBD<br />
-                                                人均：180元<br />
-                                                人气：12321
-                                            </p>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure>
-                                        <a class="img" href="#"><img src="../img/content/hot_list_pic1.gif" alt="内容图片" /></a>
-                                        <figcaption class="text">
-                                            <h3><a href="#">御舟和涵珍园国际酒店</a></h3>
-                                            <p>
-                                                区域省：朝阳/CBD<br />
-                                                人均：180元<br />
-                                                人气：12321
-                                            </p>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure>
-                                        <a class="img" href="#"><img src="../img/content/hot_list_pic1.gif" alt="内容图片" /></a>
-                                        <figcaption class="text">
-                                            <h3><a href="#">御舟和涵珍园国际酒店</a></h3>
-                                            <p>
-                                                区域省：朝阳/CBD<br />
-                                                人均：180元<br />
-                                                人气：12321
-                                            </p>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                            </ul>
-                            <a class="more" href="#" title="更多"><img src="../img/more.gif" alt="更多" /></a>
-                        </div>
-                    </section>
-                </section>
-                <section class="iMainSection fr">
-                    <h2 class="videoTitle">WHAT<sup>,</sup> HOT</h2>
-                    <div class="video"><img src="../img/play_bg.gif" /></div>
-                    <ul class="videoList">
-                        <li><a href="#">现场实录：杭州机场系统崩溃</a></li>
-                        <li><a href="#">现场实录：杭州机场系机场系统崩溃</a></li>
-                        <li><a href="#">现场实录：杭州系统崩溃</a></li>
-                    </ul>
-                </section>
-            </div>
             <section class="iMainAd">
                 <a><img src="../img/ad/ad1.jpg"/> </a>
             </section>
             <div class="clear">
                 <section class="iMainSection fl">
-                    <h2 class="videoTitle">WHAT<sup>,</sup> HOT</h2>
-                    <div class="video"><img src="../img/play_bg.gif" /></div>
-                    <ul class="videoList">
-                        <li><a href="#">现场实录：杭州机场系统崩溃</a></li>
-                        <li><a href="#">现场实录：杭州机场系机场系统崩溃</a></li>
-                        <li><a href="#">现场实录：杭州系统崩溃</a></li>
-                    </ul>
+                    <div class="activity">
+                        <h2 class="mainSectionTitle">
+                            <strong>LUCKY YODAY</strong>
+                            <span>每日活动</span>
+                            <em>2014.2</em>
+                        </h2>
+                        <div class="con">
+                            <div class="info clear">
+                                <figure>
+                                    <a class="img" href="#">
+                                        <span class="mask"></span>
+                                        <img src="../img/content/today1.gif" alt="内容" />
+                                    </a>
+                                    <figcaption class="text">
+                                        <h3>
+                                            <em>02</em>
+                                            <em>11</em>
+                                            <span>本日主题：电商网站</span>
+                                        </h3>
+                                        <p>啦啦啦啦啦</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="calendar">
+                                <h3>
+                                    <span>MON</span>
+                                    <span>TUE</span>
+                                    <span>WED</span>
+                                    <span>THU</span>
+                                    <span>FRI</span>
+                                    <span>SAT</span>
+                                    <span>SUN</span>
+                                </h3>
+                                <ol>
+                                    <li class="normal">29</li>
+                                    <li class="normal">30</li>
+                                    <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                    <li>6</li>
+                                    <li>7</li>
+                                    <li>8</li>
+                                    <li>9</li>
+                                    <li>10</li>
+                                    <li>11</li>
+                                    <li>12</li>
+                                    <li>13</li>
+                                    <li>14</li>
+                                    <li>15</li>
+                                    <li>16</li>
+                                    <li>17</li>
+                                    <li>18</li>
+                                    <li>19</li>
+                                    <li>20</li>
+                                    <li>21<img class="active" src="../img/content/today1.gif" alt="" /></li>
+                                    <li>22</li>
+                                    <li>23</li>
+                                    <li>24</li>
+                                    <li>25<img class="img" info="迟到的荣誉——啦啦啦，现在还写电商网站，呃好吧，没词儿了~~" src="../img/content/today2.gif" alt="" /></li>
+                                    <li>26</li>
+                                    <li>27<img class="img" info="这似乎是海参配燕窝，好味道~" src="../img/content/hot_list_pic2.gif" alt="" /></li>
+                                    <li>28</li>
+                                    <li>29<img class="img" info="气质美女，陪谁去过明天的情人节？" src="../img/content/hot10.gif" alt="" /></li>
+                                    <li>30<img class="img" info="帅哥是谁？陪谁去过情人节？" src="../img/content/hot11.gif" alt="" /></li>
+                                    <li>31</li>
+                                    <li class="normal">1</li>
+                                    <li class="normal">2</li>
+                                    <li class="normal">3</li>
+                                    <li class="normal">4</li>
+                                    <li class="normal">5</li>
+                                    <li class="normal">6</li>
+                                    <li class="normal">7</li>
+                                    <li class="normal">8</li>
+                                    <li class="normal">9</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <section class="iMainSection fr">
-                    <h2 class="videoTitle">WHAT<sup>,</sup> HOT</h2>
-                    <div class="video"><img src="../img/play_bg.gif" /></div>
-                    <ul class="videoList">
-                        <li><a href="#">现场实录：杭州机场系统崩溃</a></li>
-                        <li><a href="#">现场实录：杭州机场系机场系统崩溃</a></li>
-                        <li><a href="#">现场实录：杭州系统崩溃</a></li>
-                    </ul>
+                    <div class="recommend">
+                        <h2 class="mainSectionTitle">
+                            <strong>RECOMMDNE</strong>
+                            <span>精彩推荐</span>
+                        </h2>
+                        <div class="pic" id="fade">
+                            <ul>
+                                <li><a href="#"><img src="../img/content/img1.gif" /></a></li>
+                                <li><a href="#"><img src="../img/content/img2.gif" /></a></li>
+                                <li><a href="#"><img src="../img/content/img3.gif" /></a></li>
+                            </ul>
+                            <ol>
+                                <li class="active"><img src="../img/content/img1.gif" /></li>
+                                <li><img src="../img/content/img2.gif" /></li>
+                                <li><img src="../img/content/img3.gif" /></li>
+                            </ol>
+                            <p>爸爸去哪儿啦~</p>
+                        </div>
+                        <ul class="list">
+                            <li>
+                                <em><img src="../img/content/recommend_list_ico1.gif" /> |</em>
+                                <a href="#">老店换新颜，丰泽园野重张亮相...</a>
+                                <span>14/02/17</span>
+                            </li>
+                            <li>
+                                <em><img src="../img/content/recommend_list_ico2.gif" /> |</em>
+                                <a href="#">生活中哪些商品的包装有缺陷呢</a>
+                                <span>14/02/17</span>
+                            </li>
+                            <li>
+                                <em><img src="../img/content/recommend_list_ico1.gif" /> |</em>
+                                <a href="#">老店换新颜，丰泽园野重张亮相...</a>
+                                <span>14/02/17</span>
+                            </li>
+                            <li>
+                                <em><img src="../img/content/recommend_list_ico2.gif" /> |</em>
+                                <a href="#">生活中哪些商品的包装有缺陷呢</a>
+                                <span>14/02/17</span>
+                            </li>
+                            <li>
+                                <em><img src="../img/content/recommend_list_ico1.gif" /> |</em>
+                                <a href="#">老店换新颜，丰泽园野重张亮相...</a>
+                                <span>14/02/17</span>
+                            </li>
+                            <li>
+                                <em><img src="../img/content/recommend_list_ico2.gif" /> |</em>
+                                <a href="#">生活中哪些商品的包装有缺陷呢</a>
+                                <span>14/02/17</span>
+                            </li>
+                            <li>
+                                <em><img src="../img/content/recommend_list_ico1.gif" /> |</em>
+                                <a href="#">老店换新颜，丰泽园野重张亮相...</a>
+                                <span>14/02/17</span>
+                            </li>
+                            <li>
+                                <em><img src="../img/content/recommend_list_ico2.gif" /> |</em>
+                                <a href="#">生活中哪些商品的包装有缺陷呢</a>
+                                <span>14/02/17</span>
+                            </li>
+                        </ul>
+                    </div>
                 </section>
-            </div>
-            <div class="clear">
-                <section class="iMainSection fl"></section>
-                <section class="iMainSection fr"></section>
             </div>
         </section>
         <aside class="iAside fr">

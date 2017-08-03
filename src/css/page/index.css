@@ -287,9 +287,17 @@
   top: 8px;
   right: 0;
 }
+.iSearch .triangle_up:hover {
+  cursor: pointer;
+  top: 5px;
+}
 .iSearch .triangle_down_red {
   top: 17px;
   right: 0;
+}
+.iSearch .triangle_down_red:hover {
+  cursor: pointer;
+  top: 20px;
 }
 .iContent .iMain {
   width: 710px;
@@ -362,36 +370,6 @@
   background: url(../../img/hot_list_li_bg.gif);
   vertical-align: middle;
 }
-.iContent .iMain .iMainOptions .hotList .img {
-  display: block;
-  float: left;
-  width: 104px;
-  height: 84px;
-  border: 1px solid #e6e6e6;
-}
-.iContent .iMain .iMainOptions .hotList .img:hover {
-  border: 1px solid #929292;
-}
-.iContent .iMain .iMainOptions .hotList .text {
-  float: right;
-  width: 190px;
-}
-.iContent .iMain .iMainOptions .hotList h3 {
-  line-height: 24px;
-  font-size: 12px;
-  padding-bottom: 6px;
-}
-.iContent .iMain .iMainOptions .hotList h3 a {
-  font-weight: normal;
-  color: #bb0d0d;
-}
-.iContent .iMain .iMainOptions .hotList h3 a:hover {
-  text-decoration: underline;
-}
-.iContent .iMain .iMainOptions .hotList p {
-  line-height: 16px;
-  color: #6e6e6e;
-}
 .iContent .iMain .iMainOptions .hotList .more {
   position: absolute;
   bottom: 6px;
@@ -399,7 +377,7 @@
 }
 .iContent .iMain .iMainSection {
   width: 318px;
-  padding: 0 15px;
+  padding: 0 15px 15px 15px;
   border-radius: 6px;
   border: 1px solid #dbdbdb;
   margin-bottom: 10px;
@@ -437,6 +415,36 @@
 }
 .iContent .iMain .iMainSection a:hover {
   text-decoration: underline;
+}
+.iContent .iMain .img {
+  display: block;
+  float: left;
+  width: 104px;
+  height: 84px;
+  border: 1px solid #e6e6e6;
+}
+.iContent .iMain .img:hover {
+  border: 1px solid #929292;
+}
+.iContent .iMain .text {
+  float: right;
+  width: 190px;
+}
+.iContent .iMain h3 {
+  line-height: 24px;
+  font-size: 12px;
+  padding-bottom: 6px;
+}
+.iContent .iMain h3 a {
+  font-weight: normal;
+  color: #bb0d0d;
+}
+.iContent .iMain h3 a:hover {
+  text-decoration: underline;
+}
+.iContent .iMain p {
+  line-height: 16px;
+  color: #6e6e6e;
 }
 .iContent .mainSectionTitle {
   height: 40px;
@@ -549,6 +557,179 @@
   background: url(../../img/btn.gif);
   border: none;
   margin-left: 10px;
+}
+.iContent .activity {
+  width: 318px;
+}
+.iContent .activity .info {
+  width: 295px;
+  margin: 0 auto;
+  padding-top: 16px;
+  height: 104px;
+}
+.iContent .activity .img {
+  width: 84px;
+  position: relative;
+}
+.iContent .activity .mask {
+  width: 84px;
+  height: 84px;
+  background: url(../../img/activity_bg.gif) no-repeat -373px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.iContent .activity .text em {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: url(../../img/activity_bg.gif) no-repeat -348px 0;
+  font-family: arial;
+  font-size: 14px;
+  color: #cf3530;
+  text-align: center;
+  line-height: 25px;
+}
+.iContent .activity .text p {
+  color: #999;
+}
+.iContent .calendar {
+  width: 295px;
+  margin: 0 auto;
+}
+.iContent .calendar h3 {
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  background: url(../../img/adorn.gif) repeat-x;
+  word-spacing: 10px;
+}
+.iContent .calendar h3 span {
+  width: 40px;
+  margin: 0 2px 0 0;
+  color: #666;
+  font-family: arial;
+}
+.iContent .calendar ol li {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: #ededed;
+  margin: 0 2px 2px 0;
+  float: left;
+  text-align: center;
+  position: relative;
+  font-weight: bold;
+  color: #666;
+  font-family: arial;
+}
+.iContent .calendar .normal {
+  background: #f8f8f8;
+  color: #ccc;
+}
+.iContent .calendar .active,
+.iContent .calendar .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.iContent .calendar .active {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #d30408;
+  cursor: pointer;
+}
+.iContent .calendar .img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.iContent .recommend {
+  width: 318px;
+}
+.iContent .recommend .pic {
+  width: 294px;
+  height: 168px;
+  padding: 12px 12px 0;
+  background: #f8f8f8;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+.iContent .recommend .pic ul {
+  width: 223px;
+  height: 133px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+.iContent .recommend .pic ul li {
+  width: 223px;
+  height: 133px;
+  border: 1px solid #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.iContent .recommend .pic ul img {
+  width: 223px;
+  height: 133px;
+}
+.iContent .recommend .pic ol {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+.iContent .recommend .pic ol img {
+  width: 54px;
+  height: 30px;
+}
+.iContent .recommend .pic ol img:hover {
+  cursor: pointer;
+  border: 2px solid #d6191d;
+}
+.iContent .recommend .pic ol li {
+  width: 54px;
+  height: 30px;
+  border: 3px solid #fff;
+  margin-bottom: 13px;
+}
+.iContent .recommend .pic ol li .active {
+  border: 3px solid #d6191d;
+}
+.iContent .recommend .pic p {
+  line-height: 32px;
+  position: absolute;
+  left: 12px;
+  bottom: 0px;
+}
+.iContent .recommend .list {
+  padding-top: 18px;
+}
+.iContent .recommend .list li {
+  height: 27px;
+  vertical-align: middle;
+}
+.iContent .recommend .list em {
+  float: left;
+  color: #dfdfdf;
+  margin-right: 7px;
+}
+.iContent .recommend .list em img {
+  margin-right: 3px;
+}
+.iContent .recommend .list a {
+  float: left;
+  color: #454545;
+}
+.iContent .recommend .list a:hover {
+  text-decoration: underline;
+}
+.iContent .recommend .list span {
+  float: right;
+  font-family: arial;
+  font-size: 12px;
+  color: #999;
 }
 .iContent .iAside {
   width: 240px;

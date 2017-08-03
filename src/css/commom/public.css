@@ -17,9 +17,9 @@
     width:0;
     height:0;
     overflow:hidden;
-    border-left:4px solid transparent;
-    border-right:4px solid transparent;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
 }
-.triangle_up { border-bottom:4px solid #ca0309; }
-.triangle_down_red { border-top:4px solid #ca0309; }
-.triangle_down_gray { border-top:4px solid #c4bdbd; }
+.triangle_up { border-bottom:6px solid #ca0309; }
+.triangle_down_red { border-top:6px solid #ca0309; }
+.triangle_down_gray { border-top:6px solid #c4bdbd; }
